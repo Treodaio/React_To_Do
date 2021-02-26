@@ -1,0 +1,76 @@
+.AddTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px dashed white;
+}
+
+.AddTask h1 {
+    padding: 20px 10px;
+}
+
+.AddTask form {
+    height: 70%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddTask form label {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.AddTask form label:nth-of-type(2) {
+    justify-content: center;
+}
+
+.AddTask form label:last-of-type {
+    flex-direction: column;
+    padding: 20px;
+}
+
+.AddTask form input {
+    font-size: 25px;
+    padding: 5px;
+    width: 90%;
+    border: 2px solid black;
+    color: black;
+    border-radius: 10px;
+    outline: none;
+}
+
+.AddTask form input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.AddTask form textarea {
+    padding: 2%;
+    font-size: 25px;
+    height: 150px;
+    border: 2px solid black;
+    color: black;
+    border-radius: 10px;
+    outline: none;
+}
+
+.AddTask button {
+    padding: 20px;
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    font-size: 26px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.AddTask button:hover {
+    color: black;
+    background-color: white;
+}

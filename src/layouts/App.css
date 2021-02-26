@@ -2,4 +2,20 @@
   width: 100vw;
   height: 100vh;
   background-color: silver;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+}
+
+.AddTask {
+  flex-basis: 25%;
+}
+
+.TaskList {
+  flex-basis: 50%;
+}
+
+.TaskInfo {
+  flex-basis: 25%;
 }

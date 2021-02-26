@@ -1,7 +1,6 @@
 import React from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
-import TaskCompleted from './TaskCompleted';
 import TaskInfo from './TaskInfo';
 import '../layouts/App.css';
 
@@ -11,7 +10,6 @@ class App extends React.Component {
       <div className="App">
         <AddTask />
         <TaskList />
-        <TaskCompleted />
         <TaskInfo />
       </div>
     )

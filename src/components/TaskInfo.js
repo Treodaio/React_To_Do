@@ -1,7 +1,8 @@
+import '../layouts/TaskInfo.css';
 const TaskInfo = () => {
     return (
         <div className="TaskInfo">
-            <h1>Informacje o zadaniach</h1>
+            <h1>Szczegółowe informacje</h1>
         </div>
     );
 }

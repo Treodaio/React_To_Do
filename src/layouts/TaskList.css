@@ -1,0 +1,6 @@
+.TaskList {
+    border-right: 2px dashed white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

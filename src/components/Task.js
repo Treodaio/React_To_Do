@@ -1,6 +1,8 @@
 const Task = () => {
     return (
-        <h1>Pojedyńcze zadanie</h1>
+        <div className="Task">
+            <h1>Pojedyńcze zadanie</h1>
+        </div>
     );
 }
 
