@@ -1,8 +1,9 @@
 import React from 'react';
-const ActiveTask = () => {
+const ActiveTask = props => {
     return (
         <div className="ActiveTasks">
-            <p>Tutaj pojawią się aktywne zadania</p>
+            <h3 className={props.taskInfo.priority ? "priority" : ""} >{props.taskInfo.name}</h3> <h3>Data : {props.taskInfo.date}</h3>
+            <button>Zrobione</button>
         </div>
     );
 }

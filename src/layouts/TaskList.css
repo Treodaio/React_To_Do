@@ -2,5 +2,62 @@
     border-right: 2px dashed white;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.TaskList h1 {
+    padding: 20px 0;
+}
+
+.TaskList h2 {
+    padding: 20px 0;
+}
+
+.TaskList section {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+}
+
+.TaskList h3 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.ActiveTasks,
+.TaskCompleted {
+    padding: 10px;
+    width: 100%;
+
+}
+
+.TaskCompleted h3 {
+    color: silver;
+    font-style: italic;
+}
+
+
+.TaskList button {
+    padding: 10px;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .4s ease-out;
+}
+
+.TaskList button:hover {
+    background-color: white;
+    color: black;
+}
+
+.priority {
+    color: gold;
 }
