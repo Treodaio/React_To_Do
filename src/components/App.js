@@ -68,7 +68,6 @@ class App extends React.Component {
     const name = e.target.name;
 
     if (type === "checkbox") {
-      console.log(e);
       this.setState({
         [name]: e.target.checked,
       })
@@ -122,6 +121,39 @@ class App extends React.Component {
 
   clearInputs() { this.setState({ taskName: "", taskDate: "", taskPriority: false, taskAddInfo: "", }) }
 
+  handleRemove(ID) {
+    const tasksCopy = [...this.state.tasks];
+    const properLength = this.state.tasks.length - 1;
+    const index = this.findItem(ID);
+
+    tasksCopy.splice(index, 1);
+
+    if (tasksCopy.length === properLength) {
+      this.setState({
+        tasks: tasksCopy,
+      })
+    }
+  }
+
+  handleDone(ID) {
+    const index = this.findItem(ID);
+    const tasks = [...this.state.tasks];
+
+    let element = {
+      ...this.state.tasks[index],
+      active: false,
+    };
+    tasks[index] = element;
+
+    this.setState({
+      tasks
+    })
+  }
+
+  findItem(ID) {
+    return this.state.tasks.findIndex(item => item.id === ID);
+  }
+
   render() {
     return (
       <div className="App">
@@ -135,7 +167,8 @@ class App extends React.Component {
           addInfo={this.state.taskAddInfo}
         />
 
-        <TaskList tasks={this.state.tasks} />
+        <TaskList tasks={this.state.tasks} endTask={this.handleDone.bind(this)}
+          removeTask={this.handleRemove.bind(this)} />
         <TaskInfo />
       </div>
     )

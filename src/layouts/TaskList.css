@@ -1,5 +1,4 @@
 .TaskList {
-    border-right: 2px dashed white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -26,21 +25,7 @@
     padding: 10px;
     font-size: 20px;
     font-weight: normal;
-    display: inline-block;
 }
-
-.ActiveTasks,
-.TaskCompleted {
-    padding: 10px;
-    width: 100%;
-
-}
-
-.TaskCompleted h3 {
-    color: silver;
-    font-style: italic;
-}
-
 
 .TaskList button {
     padding: 10px;
@@ -58,6 +43,34 @@
     color: black;
 }
 
+
+.ActiveTasks,
+.TaskCompleted {
+    padding: 10px;
+    width: 97%;
+    cursor: pointer;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    border-radius: 10px;
+}
+
+.TaskCompleted {
+    border-color: silver;
+}
+
+.TaskCompleted h3 {
+    color: silver;
+    font-style: italic;
+}
+
+.TaskCompleted button {
+    color: silver;
+    border-color: silver;
+}
+
 .priority {
-    color: gold;
+    color: rgb(77, 212, 43)
 }

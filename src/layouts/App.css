@@ -19,3 +19,32 @@
 .TaskInfo {
   flex-basis: 25%;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+  border: 0px solid black;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: blue;
+  border: 0px solid black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+  height: 80px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: lightskyblue;
+}
