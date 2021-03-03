@@ -13,11 +13,11 @@
 }
 
 .TaskList {
-  flex-basis: 50%;
+  flex-basis: 55%;
 }
 
 .TaskInfo {
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 
 /* width */

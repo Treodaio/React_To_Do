@@ -13,7 +13,7 @@ class App extends React.Component {
         date: "19-01-2021",
         priority: false,
         active: true,
-        addInfo: "Dodatkowa informacja na temat zadania"
+        addInfo: "Szybko zanim uschną"
       },
       {
         id: 2,
@@ -21,7 +21,7 @@ class App extends React.Component {
         date: "01-03-2020",
         priority: true,
         active: true,
-        addInfo: "Dodatkowa informacja na temat zadania"
+        addInfo: "Aby uczyć się szybciej niż komputer"
       },
       {
         id: 6,
@@ -29,7 +29,7 @@ class App extends React.Component {
         date: "04-03-2020",
         priority: false,
         active: true,
-        addInfo: "Dodatkowa informacja na temat zadania"
+        addInfo: "React + Node + CSS + Express."
       },
       {
         id: 3,
@@ -37,14 +37,14 @@ class App extends React.Component {
         date: "10-06-2018",
         priority: false,
         active: false,
-        addInfo: "Dodatkowa informacja na temat zadania"
+        addInfo: "Potrzebne będzie spore zaangażowanie sprzątającego"
       },
       {
         id: 4,
         name: "Zrobić zakupy",
         date: "20-01-2021",
         priority: false,
-        active: false,
+        active: true,
         addInfo: "Ziemniaki pomidor papryka seler czosnek cebula woda ogórek sałata marchewka",
       },
       {
@@ -60,7 +60,10 @@ class App extends React.Component {
     taskDate: "",
     taskPriority: false,
     taskAddInfo: "",
+    singleTask: false,
+    clear: false,
   }
+
 
   addTaskInfo(e) {
     const value = e.target.value;
@@ -135,10 +138,33 @@ class App extends React.Component {
     }
   }
 
-  handleDone(ID) {
+  handleChangeTask(ID) {
+    const taskIndex = this.findItem(ID);
+    let singleTask = null;
+
+    if (taskIndex > -1) {
+      singleTask = { ...this.state.tasks[taskIndex] };
+    }
+
+    if (!this.state.clear && this.state.singleTask) {
+      this.setState({
+        singleTask: ""
+      })
+      return;
+    } else {
+      console.log('Działa');
+      this.changeClear(true);
+    }
+
+    this.setState({
+      singleTask,
+    })
+  }
+
+
+  handleDone(ID, e) {
     const index = this.findItem(ID);
     const tasks = [...this.state.tasks];
-
     let element = {
       ...this.state.tasks[index],
       active: false,
@@ -146,15 +172,23 @@ class App extends React.Component {
     tasks[index] = element;
 
     this.setState({
-      tasks
+      tasks,
+    })
+    this.changeClear(false);
+    e.stopPropagation();
+  }
+
+  changeClear(arg) {
+    this.setState({
+      clear: arg,
     })
   }
 
-  findItem(ID) {
-    return this.state.tasks.findIndex(item => item.id === ID);
-  }
+  findItem(ID) { return this.state.tasks.findIndex(item => item.id === ID); }
 
   render() {
+    console.log('Stan clear: ' + this.state.clear);
+    console.log('Stan singleTask: ' + this.state.singleTask);
     return (
       <div className="App">
         <AddTask
@@ -167,9 +201,13 @@ class App extends React.Component {
           addInfo={this.state.taskAddInfo}
         />
 
-        <TaskList tasks={this.state.tasks} endTask={this.handleDone.bind(this)}
-          removeTask={this.handleRemove.bind(this)} />
-        <TaskInfo />
+        <TaskList
+          tasks={this.state.tasks}
+          endTask={this.handleDone.bind(this)}
+          removeTask={this.handleRemove.bind(this)}
+          changeTask={this.handleChangeTask.bind(this)}
+        />
+        <TaskInfo task={this.state.singleTask} clear={this.state.clear} />
       </div>
     )
   }

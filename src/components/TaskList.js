@@ -6,13 +6,23 @@ import '../layouts/TaskList.css';
 
 const TaskList = props => {
     const activeTasks = props.tasks.map(task => {
-        if (task.active) { return <ActiveTask key={task.id} taskInfo={task} end={props.endTask} /> }
+        if (task.active) {
+            return <ActiveTask
+                key={task.id}
+                taskInfo={task}
+                end={props.endTask}
+                change={props.changeTask}
+            />
+        }
         else return null;
     })
     const doneTasks = props.tasks.map(task => {
         if (task.active === false) {
-            return <TaskCompleted key={task.id} taskInfo={task}
-                remove={props.removeTask} />
+            return <TaskCompleted
+                key={task.id}
+                taskInfo={task}
+                remove={props.removeTask}
+            />
         }
         else return null;
     })
