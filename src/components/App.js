@@ -61,7 +61,6 @@ class App extends React.Component {
     taskPriority: false,
     taskAddInfo: "",
     singleTask: false,
-    clear: false,
   }
 
 
@@ -145,17 +144,6 @@ class App extends React.Component {
     if (taskIndex > -1) {
       singleTask = { ...this.state.tasks[taskIndex] };
     }
-
-    if (!this.state.clear && this.state.singleTask) {
-      this.setState({
-        singleTask: ""
-      })
-      return;
-    } else {
-      console.log('Działa');
-      this.changeClear(true);
-    }
-
     this.setState({
       singleTask,
     })
@@ -174,21 +162,18 @@ class App extends React.Component {
     this.setState({
       tasks,
     })
-    this.changeClear(false);
-    e.stopPropagation();
-  }
 
-  changeClear(arg) {
-    this.setState({
-      clear: arg,
-    })
+    if (this.state.singleTask) {
+      this.setState({
+        singleTask: "",
+      })
+    }
+    e.stopPropagation();
   }
 
   findItem(ID) { return this.state.tasks.findIndex(item => item.id === ID); }
 
   render() {
-    console.log('Stan clear: ' + this.state.clear);
-    console.log('Stan singleTask: ' + this.state.singleTask);
     return (
       <div className="App">
         <AddTask
@@ -207,7 +192,7 @@ class App extends React.Component {
           removeTask={this.handleRemove.bind(this)}
           changeTask={this.handleChangeTask.bind(this)}
         />
-        <TaskInfo task={this.state.singleTask} clear={this.state.clear} />
+        <TaskInfo task={this.state.singleTask} />
       </div>
     )
   }
