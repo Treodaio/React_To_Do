@@ -1,6 +1,6 @@
 import React from 'react';
 import '../layouts/AddTask.css';
-
+const minDate = new Date().toISOString().slice(0, 10);
 
 const AddTask = props => {
     return (
@@ -31,21 +31,33 @@ const AddTask = props => {
                         checked={props.priority}
                         onChange={props.addTaskInfo}
                     />
-
                     <h4>Priorytet</h4>
                 </label>
 
-                <label htmlFor="finishDate">
+                <label htmlFor="startDate" >
                     <h4>Data rozpoczęcia zadania</h4>
 
                     <input
                         type="date"
-                        id="finishDate"
-                        name="taskDate"
-                        value={props.date}
+                        min={minDate}
+                        id="startDate"
+                        name="createDate"
+                        value={props.createDate}
                         onChange={props.addTaskInfo}
                     />
 
+                </label>
+
+                <label htmlFor="finishDate">
+                    <h4>Data zakończenia zadania</h4>
+                    <input
+                        type="date"
+                        min={minDate}
+                        id="finishDate"
+                        name="doUntil"
+                        value={props.doUntil}
+                        onChange={props.addTaskInfo}
+                    />
                 </label>
 
                 <label htmlFor="additionalInfo">
@@ -58,7 +70,6 @@ const AddTask = props => {
                         value={props.addInfo}
                         onChange={props.addTaskInfo}>
                     </textarea>
-
                 </label>
 
                 <button type="submit">Dodaj zadanie</button>

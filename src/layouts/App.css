@@ -4,8 +4,9 @@
   background-color: silver;
   display: flex;
   justify-content: center;
-  background-color: black;
   color: white;
+  background-color: black;
+  background-image: url('../images/theme.png');
 }
 
 .AddTask {
@@ -27,14 +28,14 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: black;
+  background: transparent;
   border: 0px solid black;
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: blue;
+  background: rgb(219, 219, 219);
   border: 0px solid black;
   border-radius: 10px;
 }

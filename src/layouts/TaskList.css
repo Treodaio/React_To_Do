@@ -29,9 +29,9 @@
 
 .TaskList button {
     padding: 10px;
-    color: white;
+    color: rgb(77, 212, 43);
     background-color: black;
-    border: 2px solid white;
+    border: 2px solid rgb(77, 212, 43);
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -40,10 +40,13 @@
 }
 
 .TaskList button:hover {
+    color: rgb(77, 212, 43);
     background-color: white;
-    color: black;
 }
 
+.ActiveTasks:hover {
+    text-shadow: 0 0 4px white;
+}
 
 .ActiveTasks,
 .TaskCompleted {
@@ -84,4 +87,8 @@
 
 .priority {
     color: rgb(77, 212, 43)
+}
+
+.active {
+    background-color: silver;
 }

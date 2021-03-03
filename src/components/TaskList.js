@@ -11,7 +11,7 @@ const TaskList = props => {
                 key={task.id}
                 taskInfo={task}
                 end={props.endTask}
-                change={props.changeTask}
+                handleInfo={props.handleTaskInfo}
             />
         }
         else return null;
