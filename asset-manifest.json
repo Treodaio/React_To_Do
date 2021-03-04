@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Treodaio/React_To_Do/static/css/main.ccc09bd9.chunk.css",
-    "main.js": "/Treodaio/React_To_Do/static/js/main.948e4925.chunk.js",
-    "main.js.map": "/Treodaio/React_To_Do/static/js/main.948e4925.chunk.js.map",
-    "runtime-main.js": "/Treodaio/React_To_Do/static/js/runtime-main.e962ad81.js",
-    "runtime-main.js.map": "/Treodaio/React_To_Do/static/js/runtime-main.e962ad81.js.map",
-    "static/js/2.7e514415.chunk.js": "/Treodaio/React_To_Do/static/js/2.7e514415.chunk.js",
-    "static/js/2.7e514415.chunk.js.map": "/Treodaio/React_To_Do/static/js/2.7e514415.chunk.js.map",
-    "static/js/3.0111261c.chunk.js": "/Treodaio/React_To_Do/static/js/3.0111261c.chunk.js",
-    "static/js/3.0111261c.chunk.js.map": "/Treodaio/React_To_Do/static/js/3.0111261c.chunk.js.map",
-    "index.html": "/Treodaio/React_To_Do/index.html",
-    "static/css/main.ccc09bd9.chunk.css.map": "/Treodaio/React_To_Do/static/css/main.ccc09bd9.chunk.css.map",
-    "static/js/2.7e514415.chunk.js.LICENSE.txt": "/Treodaio/React_To_Do/static/js/2.7e514415.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/Treodaio/React_To_Do/static/media/theme.cc0e3dfa.png"
+    "main.css": "/React_To_Do/static/css/main.5f22a44b.chunk.css",
+    "main.js": "/React_To_Do/static/js/main.948e4925.chunk.js",
+    "main.js.map": "/React_To_Do/static/js/main.948e4925.chunk.js.map",
+    "runtime-main.js": "/React_To_Do/static/js/runtime-main.025659f8.js",
+    "runtime-main.js.map": "/React_To_Do/static/js/runtime-main.025659f8.js.map",
+    "static/js/2.7e514415.chunk.js": "/React_To_Do/static/js/2.7e514415.chunk.js",
+    "static/js/2.7e514415.chunk.js.map": "/React_To_Do/static/js/2.7e514415.chunk.js.map",
+    "static/js/3.0111261c.chunk.js": "/React_To_Do/static/js/3.0111261c.chunk.js",
+    "static/js/3.0111261c.chunk.js.map": "/React_To_Do/static/js/3.0111261c.chunk.js.map",
+    "index.html": "/React_To_Do/index.html",
+    "static/css/main.5f22a44b.chunk.css.map": "/React_To_Do/static/css/main.5f22a44b.chunk.css.map",
+    "static/js/2.7e514415.chunk.js.LICENSE.txt": "/React_To_Do/static/js/2.7e514415.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/React_To_Do/static/media/theme.cc0e3dfa.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e962ad81.js",
+    "static/js/runtime-main.025659f8.js",
     "static/js/2.7e514415.chunk.js",
-    "static/css/main.ccc09bd9.chunk.css",
+    "static/css/main.5f22a44b.chunk.css",
     "static/js/main.948e4925.chunk.js"
   ]
 }
