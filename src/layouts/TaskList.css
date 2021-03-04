@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
 }
 
 .TaskList h1 {
@@ -11,6 +10,24 @@
 
 .TaskList h2 {
     padding: 20px 0;
+}
+
+.TaskList .sort {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+}
+
+.TaskList .sort h1 {
+    text-align: right;
+    flex-basis: 50%;
+}
+
+.TaskList .sort button {
+    padding: 10px;
+    color: white;
+    border-color: white;
 }
 
 .TaskList section {
@@ -28,10 +45,10 @@
 }
 
 .TaskList button {
-    padding: 10px;
-    color: rgb(77, 212, 43);
-    background-color: black;
-    border: 2px solid rgb(77, 212, 43);
+    padding: 5px;
+    color: silver;
+    background-color: transparent;
+    border: 2px solid silver;
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -41,7 +58,7 @@
 
 .TaskList button:hover {
     color: rgb(77, 212, 43);
-    background-color: white;
+    border-color: rgb(77, 212, 43);
 }
 
 .ActiveTasks:hover {
@@ -66,7 +83,7 @@
 }
 
 .ActiveTasks button {
-    flex-basis: 10%;
+    flex-basis: 8%;
 }
 
 .TaskCompleted {
@@ -86,9 +103,9 @@
 }
 
 .priority {
-    color: rgb(77, 212, 43)
+    color: rgb(77, 212, 43);
 }
 
 .active {
-    background-color: silver;
+    background-color: rgb(77, 212, 43);
 }

@@ -21,19 +21,16 @@
   flex-basis: 20%;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
   border: 0px solid black;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(219, 219, 219);
   border: 0px solid black;
@@ -44,7 +41,6 @@
   height: 80px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
   background: lightskyblue;

@@ -12,9 +12,9 @@ class App extends React.Component {
     tasks: [
       {
         id: 1,
-        name: "Podlać kwiatki",
+        name: "Spotkanie biznesowe",
         createDate: "2021-03-01",
-        doUntil: "2021-03-05",
+        doUntil: "2021-03-11",
         priority: false,
         active: true,
         addInfo: "Szybko zanim uschną"
@@ -30,38 +30,21 @@ class App extends React.Component {
       },
       {
         id: 6,
-        name: "Spotkanie biznesowe",
+        name: "Spotkanie z przyjaciółmi",
         createDate: "2020-03-04",
         doUntil: "2020-03-07",
         priority: false,
         active: true,
         addInfo: "React + Node + CSS + Express."
       },
-      {
-        id: 3,
-        name: "Posprzątać pokój",
-        createDate: "2018-06-10",
-        doUntil: "2021-03-08",
-        priority: false,
-        active: false,
-        addInfo: "Potrzebne będzie spore zaangażowanie sprzątającego"
-      },
-      {
-        id: 4,
-        name: "Zrobić zakupy",
-        createDate: "2021-06-02",
-        doUntil: "2021-06-09",
-        priority: false,
-        active: true,
-        addInfo: "Ziemniaki pomidor papryka seler czosnek cebula woda ogórek sałata marchewka",
-      },
+
       {
         id: 5,
         name: "Pracować nad nowym projektem",
         createDate: "2021-02-03",
         doUntil: "2021-03-10",
         priority: true,
-        active: true,
+        active: false,
         addInfo: "Projekt React",
       },
     ],
@@ -151,9 +134,7 @@ class App extends React.Component {
 
     if (taskIndex > -1) { singleTask = { ...this.state.tasks[taskIndex] }; }
 
-    this.setState({
-      singleTask,
-    })
+    this.setState({ singleTask })
 
     if (singleTask) {
       this.calcTaskAge(singleTask.createDate);
@@ -166,7 +147,7 @@ class App extends React.Component {
     const result = Math.floor((TODAY - taskInMiliseconds) / ONE_DAY);
     result.toString();
 
-    if (result > 0) {
+    if (result !== '0') {
       this.setState({ taskAge: result, })
     } else { this.setState({ taskAge: undefined, }) }
   }
@@ -184,25 +165,59 @@ class App extends React.Component {
   handleDone(ID, e) {
     const index = this.findTaskID(ID);
     const tasks = [...this.state.tasks];
+
     let element = {
       ...this.state.tasks[index],
       active: false,
     };
     tasks[index] = element;
 
-    this.setState({
-      tasks,
-    })
+    this.setState({ tasks, })
 
-    if (this.state.singleTask) {
-      this.setState({
-        singleTask: "",
-      })
-    }
+    if (this.state.singleTask) { this.setState({ singleTask: "", }) }
     e.stopPropagation();
   }
 
   findTaskID(ID) { return this.state.tasks.findIndex(item => item.id === ID); }
+
+
+  sortTasks(type, how) {
+    if (type && how === 'name') { this.sortByName(true) };
+    if (type && how === 'date') { this.sortByDate(true) };
+    if (!type && how === 'name') { this.sortByName(false) };
+    if (!type && how === 'date') { this.sortByDate(false) };
+  }
+
+  sortByName(type) {
+    let taskToSort = this.state.tasks.filter(task => task.active === type);
+    const otherTasks = this.state.tasks.filter(task => task.active !== type);
+
+    if (taskToSort.length > 2) {
+      taskToSort.sort((a, b) => {
+        a = a.name.toLowerCase();
+        b = b.name.toLowerCase();
+        if (a < b) return -1;
+        if (a > b) return 1;
+        else return 0;
+      })
+    }
+    const tasks = taskToSort.concat(otherTasks);
+    if (tasks.length >= taskToSort.length) { this.setState({ tasks }); }
+  }
+  sortByDate(type) {
+    let taskToSort = this.state.tasks.filter(task => task.active === type);
+    const otherTasks = this.state.tasks.filter(task => task.active !== type);
+
+    if (taskToSort.length > 2) {
+      taskToSort.sort((a, b) => {
+        if (a.doUntil < b.doUntil) return -1;
+        if (a.doUntil > b.doUntil) return 1;
+        else return 0;
+      })
+    }
+    const tasks = taskToSort.concat(otherTasks);
+    if (tasks.length >= taskToSort.length) { this.setState({ tasks }); }
+  }
 
   render() {
     const { taskName, createDate, doUntil, taskPriority,
@@ -226,6 +241,7 @@ class App extends React.Component {
           endTask={this.handleDone.bind(this)}
           removeTask={this.handleRemove.bind(this)}
           handleTaskInfo={this.handleTaskInfo.bind(this)}
+          sortTasks={this.sortTasks.bind(this)}
         />
         <TaskInfo
           task={singleTask}
@@ -238,4 +254,3 @@ class App extends React.Component {
 }
 
 export default App;
-

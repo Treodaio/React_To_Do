@@ -18,14 +18,13 @@ const TaskInfo = props => {
 
             <section>
                 <h3>Przydzielonego czasu: </h3>
-                <p>{props.timeToTask && id ? props.timeToTask : "---"}</p>
+                <p>{props.timeToTask && id ? `${props.timeToTask} dni` : "---"}</p>
             </section>
 
             <section className="days">
                 <h3>Dni upłynęło: </h3>
                 <p>{props.taskAge && id ? props.taskAge : "---"}</p>
             </section>
-
         </div>
     );
 }

@@ -17,7 +17,7 @@ const TaskList = props => {
         else return null;
     })
     const doneTasks = props.tasks.map(task => {
-        if (task.active === false) {
+        if (!task.active) {
             return <TaskCompleted
                 key={task.id}
                 taskInfo={task}
@@ -30,11 +30,21 @@ const TaskList = props => {
     return (
         <div className="TaskList">
             <section>
-                <h1>Lista zadań do zrobienia</h1>
+                <div className="sort">
+                    <h1>Lista zadań do zrobienia</h1>
+                    <button onClick={() => props.sortTasks(true, 'name')}> A / Z</button>
+                    <button onClick={() => props.sortTasks(true, 'date')}> Termin</button>
+                </div>
                 {activeTasks}
             </section>
+
             <section>
-                <h2>Zrobione zadania</h2>
+                <div className="sort">
+                    <h2>Zrobione zadania</h2>
+                    <button onClick={() => props.sortTasks(false, 'name')}> A / Z</button>
+                    <button onClick={() => props.sortTasks(false, 'date')}> Termin</button>
+                </div>
+
                 {doneTasks}
             </section>
         </div>

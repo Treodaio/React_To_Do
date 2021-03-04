@@ -52,10 +52,10 @@ const AddTask = props => {
                     <h4>Data zakończenia zadania</h4>
                     <input
                         type="date"
-                        min={minDate}
+                        min={props.createDate}
                         id="finishDate"
                         name="doUntil"
-                        value={props.doUntil}
+                        value={props.doUntil <= props.createDate ? props.createDate : props.doUntil}
                         onChange={props.addTaskInfo}
                     />
                 </label>
