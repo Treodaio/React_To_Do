@@ -1,7 +1,15 @@
-import '../layouts/TaskInfo.css';
+import { useContext } from 'react';
+import { StoreContext } from '../../store/StoreProvider';
+import '../../layouts/TaskInfo.css';
+// task={singleTask}
+// taskAge={taskAge}
+// timeToTask={timeBetween}
+const TaskInfo = () => {
+    const { singleTask } = useContext(StoreContext);
+    const { taskAge } = useContext(StoreContext);
+    const { timeBetween } = useContext(StoreContext);
 
-const TaskInfo = props => {
-    const { id, createDate, addInfo } = props.task;
+    const { id, createDate, addInfo } = singleTask;
 
     return (
         <div className="TaskInfo">
@@ -18,12 +26,12 @@ const TaskInfo = props => {
 
             <section>
                 <h3>Przydzielonego czasu: </h3>
-                <p>{props.timeToTask && id ? `${props.timeToTask} dni` : "---"}</p>
+                <p>{timeBetween && id ? `${timeBetween} dni` : "---"}</p>
             </section>
 
             <section className="days">
                 <h3>Dni upłynęło: </h3>
-                <p>{props.taskAge && id ? props.taskAge : "---"}</p>
+                <p>{taskAge && id ? taskAge : "---"}</p>
             </section>
         </div>
     );

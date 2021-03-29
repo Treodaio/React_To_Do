@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Spotkanie biznesowe",
+      "createDate": "2021-03-01",
+      "doUntil": "2021-03-11",
+      "priority": false,
+      "active": true,
+      "addInfo": "Szybko zanim uschną"
+    },
+    {
+      "id": 2,
+      "name": "Opracować skuteczny plan nauki",
+      "createDate": "2020-01-01",
+      "doUntil": "2021-03-06",
+      "priority": true,
+      "active": true,
+      "addInfo": "Aby uczyć się szybciej niż komputer"
+    },
+    {
+      "id": 6,
+      "name": "Spotkanie z przyjaciółmi",
+      "createDate": "2020-03-04",
+      "doUntil": "2020-03-07",
+      "priority": false,
+      "active": true,
+      "addInfo": "React + Node + CSS + Express."
+    },
+    {
+      "id": 5,
+      "name": "Pracować nad nowym projektem",
+      "createDate": "2021-02-03",
+      "doUntil": "2021-03-10",
+      "priority": true,
+      "active": false,
+      "addInfo": "Projekt React"
+    }
+  ]
+}
