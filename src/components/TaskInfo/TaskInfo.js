@@ -1,14 +1,11 @@
 import { useContext } from 'react';
 import { StoreContext } from '../../store/StoreProvider';
 import '../../layouts/TaskInfo.css';
-// task={singleTask}
-// taskAge={taskAge}
-// timeToTask={timeBetween}
+
 const TaskInfo = () => {
     const { singleTask } = useContext(StoreContext);
     const { taskAge } = useContext(StoreContext);
     const { timeBetween } = useContext(StoreContext);
-
     const { id, createDate, addInfo } = singleTask;
 
     return (
@@ -20,7 +17,7 @@ const TaskInfo = () => {
             </section>
 
             <section>
-                <h3>Utworzono dnia: </h3>
+                <h3>Rozpoczęto dnia: </h3>
                 <p>{createDate ? createDate : ""}</p>
             </section>
 

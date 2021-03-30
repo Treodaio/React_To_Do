@@ -6,7 +6,6 @@ import TaskInfo from './TaskInfo/TaskInfo';
 import '../layouts/App.css';
 
 const App = () => {
-
   return (
     <StoreProvider>
       <div className="App">

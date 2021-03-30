@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { StoreContext } from '../../store/StoreProvider';
 
 import '../../layouts/AddTask.css';
@@ -6,34 +6,33 @@ const minDate = new Date().toISOString().slice(0, 10);
 
 const AddTask = () => {
   const { tasks, setTasks } = useContext(StoreContext);
-  const { taskName, setTaskName } = useContext(StoreContext);
-  const { createDate, setCreateDate } = useContext(StoreContext);
-  const { doUntil, setDoUntil } = useContext(StoreContext);
-  const { taskPriority, setTaskPriority } = useContext(StoreContext);
-  const { taskAddInfo, setTaskAddInfo } = useContext(StoreContext);
+
+  const [taskName, setTaskName] = useState('');
+  const [createDate, setCreateDate] = useState('');
+  const [doUntil, setDoUntil] = useState('');
+  const [taskPriority, setTaskPriority] = useState(false);
+  const [taskAddInfo, setTaskAddInfo] = useState('');
 
   const handleTaskName = (e) => setTaskName(e.target.value);
   const handleCreateDate = (e) => setCreateDate(e.target.value);
-  const handledoUntil = (e) => setDoUntil(e.target.value);
+  const handleDoUntil = (e) => setDoUntil(e.target.value);
   const handleTaskPriority = (e) => setTaskPriority(e.target.checked);
   const handleTaskAddInfo = (e) => setTaskAddInfo(e.target.value);
 
   const addTask = (e) => {
     e.preventDefault();
     if (checkIsTaskEmpty()) return;
-
     const tasksCopy = [...tasks];
-    
     let newID = generateIndex(tasksCopy.length);
-
     if (!newID) {
       newID = generateIndex(tasksCopy.length);
     } else {
+
       const newTaskArray = tasksCopy.concat({
         id: newID,
         name: taskName,
         createDate: createDate,
-        doUntil: doUntil,
+        doUntil: doUntil ? doUntil : createDate,
         priority: taskPriority,
         active: true,
         addInfo: taskAddInfo,
@@ -118,7 +117,7 @@ const AddTask = () => {
             id="finishDate"
             name="doUntil"
             value={doUntil <= createDate ? createDate : doUntil}
-            onChange={handledoUntil}
+            onChange={handleDoUntil}
           />
         </label>
 

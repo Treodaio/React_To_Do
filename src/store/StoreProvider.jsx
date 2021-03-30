@@ -1,22 +1,13 @@
-import React, { createContext, useEffect, useState } from 'react'
-
+import React, { createContext, useEffect, useState } from 'react';
 export const StoreContext = createContext(null);
+const URL = "http://localhost:3000/React_To_Do/data/tasks.json";
 
 const StoreProvider = ({ children }) => {
   const [tasks, setTasks] = useState(null);
-
-  const [taskName, setTaskName] = useState("");
-  const [createDate, setCreateDate] = useState("");
-  const [taskPriority, setTaskPriority] = useState("");
-  const [taskAddInfo, setTaskAddInfo] = useState("");
-  const [doUntil, setDoUntil] = useState("");
-
   const [singleTask, setSingleTask] = useState(false);
   const [taskAge, setTaskAge] = useState(undefined);
   const [timeBetween, setTimeBetween] = useState(undefined);
-
-  const [isLoading, setIsLoading] = useState(false);
-  const URL = "http://localhost:3000/React_To_Do/data/tasks.json";
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const fetchData = () => {
     fetch(URL)
@@ -29,7 +20,7 @@ const StoreProvider = ({ children }) => {
       .then(response => response.json())
       .then(data => {
         setTasks(data.tasks);
-        setIsLoading(true);
+        setIsLoaded(true);
       })
       .catch(error => console.log(error))
   }
@@ -43,30 +34,17 @@ const StoreProvider = ({ children }) => {
       value={{
         tasks,
         setTasks,
-        taskName,
-        setTaskName,
-        taskPriority,
-        setTaskPriority,
-        createDate,
-        setCreateDate,
-        taskAddInfo,
-        setTaskAddInfo,
-        doUntil,
-        setDoUntil,
         singleTask,
         setSingleTask,
         taskAge,
         setTaskAge,
         timeBetween,
         setTimeBetween,
-        isLoading,
-        setIsLoading,
+        isLoaded,
       }}
     >
       {children}
     </StoreContext.Provider>
   )
-
 }
-
 export default StoreProvider;
